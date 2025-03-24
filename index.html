@@ -30,8 +30,11 @@
   <script>
 fetch('https://ipinfo.io/ip')
   .then(response => response.text())
-  .then(ip => document.getElementById('ip').innerText = ip.trim());
-
+  .then(ip => document.getElementById('ip').innerText = ip.trim())
+  .catch(error => {
+    document.getElementById('ip').innerText = 'Error fetching IP';
+    console.error('IP fetch failed:', error);
+  });
   </script>
 </body>
 </html>
